@@ -11,6 +11,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .card {
       background: white;
       padding: 30px;
@@ -20,45 +21,64 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       position: relative;
     }
+
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 80px;
+    }
+
     button {
       padding: 10px 22px;
       font-size: 16px;
       border-radius: 20px;
       border: none;
       cursor: pointer;
+      position: absolute;
     }
+
     .yes {
       background: #ff4d6d;
       color: white;
+      left: 40px;
     }
+
     .no {
       background: #ddd;
-      position: absolute;
+      right: 40px;
     }
   </style>
 </head>
 <body>
-  <div class=“card”>
-  <h2>Saumya,Will you be my Valentine? </h2>
-  <button class=“yes” onclick=“alert(‘Yayyy  I knew it!’)”>Yes</button>
- <button class=“no” id=“noBtn”
-        onmouseover=“runAway()”
-        ontouchstart=“runAway()”>No</button>
+
+<div class="card">
+  <h2>Nirali, will you be my Valentine? 💖</h2>
+
+  <div class="buttons">
+    <button class="yes" onclick="yesClick()">Yes</button>
+    <button class="no" id="noBtn"
+      onmouseover="runAway()"
+      ontouchstart="runAway()">No</button>
+  </div>
 </div>
 
 <script>
+function yesClick() {
+  alert("Yayyy 💕 I knew it!");
+}
+
 function runAway() {
-  const btn = document.getElementById(“noBtn”);
-  const card = document.querySelector(“.card”);
+  const btn = document.getElementById("noBtn");
+  const container = document.querySelector(".buttons");
 
-  const maxX = card.clientWidth - btn.offsetWidth;
-  const maxY = card.clientHeight - btn.offsetHeight;
+  const maxX = container.clientWidth - btn.offsetWidth;
+  const maxY = container.clientHeight - btn.offsetHeight;
 
-  const randomX = Math.random() * maxX;
-  const randomY = Math.random() * maxY;
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
 
-  btn.style.left = randomX + “px”;
-  btn.style.top = randomY + “px”;
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
 }
 </script>
 
