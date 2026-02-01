@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Valentine?</title>
+  <style>
+    body {
+      background: #ffe6ea;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      width: 320px;
+      text-align: center;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    button {
+      padding: 10px 22px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    .no {
+      background: #ddd;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class=“card”>
+  <h2>Will you be my Valentine? </h2>
+  <button class=“yes” onclick=“alert(‘Yayyy  I knew it!’)”>Yes</button>
+  <button class=“no” id=“noBtn” onmouseover=“runAway()”>No</button>
+</div>
+
+<script>
+function runAway() {
+  const btn = document.getElementById(“noBtn”);
+  const card = document.querySelector(“.card”);
+
+  const maxX = card.clientWidth - btn.offsetWidth;
+  const maxY = card.clientHeight - btn.offsetHeight;
+
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+
+  btn.style.left = randomX + “px”;
+  btn.style.top = randomY + “px”;
+}
+</script>
+
+</body>
+</html>
